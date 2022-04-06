@@ -8,6 +8,10 @@ import { UserDetailComponent } from './main/user/user-detail/user-detail.compone
 import { UserEditComponent } from './main/user/user-edit/user-edit.component';
 import { UserListComponent } from './main/user/user-list/user-list.component';
 import { UserLoginComponent } from './main/user/user-login/user-login.component';
+import { VendorCreateComponent } from './main/vendor/vendor-create/vendor-create.component';
+import { VendorDetailComponent } from './main/vendor/vendor-detail/vendor-detail.component';
+import { VendorEditComponent } from './main/vendor/vendor-edit/vendor-edit.component';
+import { VendorListComponent } from './main/vendor/vendor-list/vendor-list.component';
 
 
 const routes: Routes = [
@@ -19,6 +23,11 @@ const routes: Routes = [
   { path: "user/create", component: UserCreateComponent },
   { path: "user/detail/:id", component: UserDetailComponent },
   { path: "user/edit/:id", component: UserEditComponent },
+
+  { path: "vendor/list", component: VendorListComponent },
+  { path: "vendor/create", component: VendorCreateComponent },
+  { path: "vendor/detail/:id", component: VendorDetailComponent },
+  { path: "vendor/edit/:id", component: VendorEditComponent },
 
   { path: "user/login", component: UserLoginComponent },
 

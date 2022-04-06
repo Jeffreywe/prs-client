@@ -16,6 +16,11 @@ import { UserEditComponent } from './main/user/user-edit/user-edit.component';
 import { UserSearchPipe } from './main/user/user-search.pipe';
 import { BoolDisplayPipe } from './bool-display.pipe';
 import { UserLoginComponent } from './main/user/user-login/user-login.component';
+import { VendorListComponent } from './main/vendor/vendor-list/vendor-list.component';
+import { VendorCreateComponent } from './main/vendor/vendor-create/vendor-create.component';
+import { VendorEditComponent } from './main/vendor/vendor-edit/vendor-edit.component';
+import { VendorDetailComponent } from './main/vendor/vendor-detail/vendor-detail.component';
+import { VendorSearchPipe } from './main/vendor/vendor-search.pipe';
 
 
 @NgModule({
@@ -31,7 +36,12 @@ import { UserLoginComponent } from './main/user/user-login/user-login.component'
     UserEditComponent,
     UserSearchPipe,
     BoolDisplayPipe,
-    UserLoginComponent
+    UserLoginComponent,
+    VendorListComponent,
+    VendorCreateComponent,
+    VendorEditComponent,
+    VendorDetailComponent,
+    VendorSearchPipe
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
