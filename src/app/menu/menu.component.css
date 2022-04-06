@@ -1,0 +1,19 @@
+nav {
+    background-color: rgb(99, 97, 97);
+    font-weight: bold;
+}
+
+li {
+    display: inline-block;
+}
+
+a {
+    color: rgb(210, 211, 211);
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    background-color: darkgoldenrod;
+}
