@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SystemService } from 'src/app/system.service';
+import { User } from '../user.class';
 import { UserService } from '../user.service';
 
 @Component({
@@ -8,17 +11,33 @@ import { UserService } from '../user.service';
 })
 export class UserLoginComponent implements OnInit {
 
-  username: string = "";
-  password: string = "";
+  uname: string = "";
+  message: string = "Wrong password!";
+  placement: string = "";
+  pword: string ="";
+  user!: User;
 
   constructor(
-    private usersvc: UserService
+    private usersvc: UserService,
+    private sys : SystemService,
+    private router: Router
   ) { }
 
+  clicked(): void {
+    if(this.pword === this.user.password) {
+      this.router.navigateByUrl("/request/list")
+    }
+    if(this.pword != this.user.password) {
+      this.placement = this.message;
+    }
+  }
   submit(): void {
-    this.usersvc.login(this.username, this.password).subscribe({
+    this.sys._user = null;
+    this.usersvc.login(this.uname, this.pword).subscribe({
       next: (res) => {
-        console.log("Login successful!");
+        this.sys._user = res;
+        console.log("Login successful!", res);
+        this.router.navigateByUrl("/request/list")
       },
       error: (err) => {
         console.error("Login unsuccessful!");

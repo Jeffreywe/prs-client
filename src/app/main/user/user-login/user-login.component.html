@@ -1,12 +1,13 @@
-<div id="login">
-    <span id="pTitle">User Login</span>
+<div>
+    <span class="pTitle">User Login</span>
 <div>
     <label>Login name:</label>
-    <input [(ngModel)]="username" type="text">
+    <input [(ngModel)]="uname" type="text">
 </div>
 <div>
     <label>Password:</label>
-    <input [(ngModel)]="password" type="text">
+    <input [(ngModel)]="pword" type="text">
+    <label>{{placement}}</label>
 </div>
 <button (click)="submit()">Login</button>
 </div>

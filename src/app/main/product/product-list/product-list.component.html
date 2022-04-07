@@ -1,8 +1,8 @@
 <app-menu></app-menu>
 <div>
-    <span id="pTitle">Product List</span> |
-    <a id="create" routerLink="/product/create">Create</a> |
-    <input [(ngModel)]="searchCriteria" type="text" placeholder="Search">
+    <span class="pTitle">Product List</span> |
+    <a class="createBtn" routerLink="/product/create">Create</a> |
+    <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
 </div>
 <hr>
 <table class="table table-sm">
@@ -26,10 +26,10 @@
             <td>{{ p.name }}</td>
             <td>{{ p.price | currency }}</td>
             <td>{{ p.unit }}</td>
-            <td>{{ p.photopath }}</td>
+            <td>{{ p.photoPath }}</td>
             <td>
-                <a routerLink="/product/detail/{{p.id}}">Detail</a> |
-                <a routerLink="/product/edit/{{p.id}}">Edit</a>
+                <a class="detEdi" routerLink="/product/detail/{{p.id}}">Detail</a> |
+                <a class="detEdi" routerLink="/product/edit/{{p.id}}">Edit</a>
             </td>
         </tr>
     </tbody>

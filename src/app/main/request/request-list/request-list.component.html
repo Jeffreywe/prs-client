@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+<div>
+    <span class="pTitle">Request List</span> |
+    <a class="createBtn" routerLink="/request/create">Create</a>
+</div>
+<hr>
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>User</th>
+            <th>Description</th>
+            <th>Justification</th>
+            <th>Rejection Reason</th>
+            <th>Delivery Mode</th>
+            <th>Status</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of requests">
+            <td>{{ r.id }}</td>
+            <td>{{ r.userId }}</td>
+            <td>{{ r.description }}</td>
+            <td>{{ r.justification }}</td>
+            <td>{{ r.rejectionReason }}</td>
+            <td>{{ r.deliveryMode }}</td>
+            <td>{{ r.status }}</td>
+            <td>{{ r.total | currency}}</td>
+            <td>
+                <a class="detEdi" routerLink="/request/detail/{{r.id}}">Detail</a> |
+                <a class="detEdi" routerLink="/request/edit/{{r.id}}">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

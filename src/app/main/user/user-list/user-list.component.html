@@ -1,8 +1,8 @@
 <app-menu></app-menu>
 <div>
-    <span id="pTitle">User List</span> |
-    <a id="create" routerLink="/user/create">Create</a> |
-    <input [(ngModel)]="searchCriteria" type="text" placeholder="Search">
+    <span class="pTitle">User List</span> |
+    <a class="createBtn" routerLink="/user/create">Create</a> |
+    <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
 </div>
 <hr>
 <table class="table table-sm">
@@ -27,8 +27,8 @@
             <td>{{ u.isReviewer | boolDisplay }}</td>
             <td>{{ u.isAdmin | boolDisplay }}</td>
             <td>
-                <a routerLink="/user/detail/{{u.id}}">Detail</a> |
-                <a routerLink="/user/edit/{{u.id}}">Edit</a>
+                <a class="detEdi" routerLink="/user/detail/{{u.id}}">Detail</a> |
+                <a class="detEdi" routerLink="/user/edit/{{u.id}}">Edit</a>
             </td>
         </tr>
     </tbody>
