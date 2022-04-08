@@ -11,11 +11,8 @@ import { UserService } from '../user.service';
 })
 export class UserLoginComponent implements OnInit {
 
-  uname: string = "";
-  message: string = "Wrong password!";
-  placement: string = "";
-  pword: string ="";
-  user!: User;
+  username: string = "";
+  password: string = "";
 
   constructor(
     private usersvc: UserService,
@@ -23,20 +20,12 @@ export class UserLoginComponent implements OnInit {
     private router: Router
   ) { }
 
-  clicked(): void {
-    if(this.pword === this.user.password) {
-      this.router.navigateByUrl("/request/list")
-    }
-    if(this.pword != this.user.password) {
-      this.placement = this.message;
-    }
-  }
+  
   submit(): void {
     this.sys._user = null;
-    this.usersvc.login(this.uname, this.pword).subscribe({
+    this.usersvc.login(this.username, this.password).subscribe({
       next: (res) => {
-        this.sys._user = res;
-        console.log("Login successful!", res);
+        this.sys.setUserLoggedIn(res as User);
         this.router.navigateByUrl("/request/list")
       },
       error: (err) => {
@@ -44,6 +33,7 @@ export class UserLoginComponent implements OnInit {
       }
     });
   }
+
   ngOnInit(): void {
   }
 

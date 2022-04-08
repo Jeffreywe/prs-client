@@ -9,7 +9,6 @@ import { User } from './main/user/user.class';
 })
 export class SystemService {
 
-  baseUrl: string = "http://localhost:43788/api/users"
   _user!: any
 
   constructor(
@@ -17,8 +16,11 @@ export class SystemService {
     private router: Router
   ) { }
 
-  getLoggedInUser(): Observable<User> {
-    return this.http.get(`${this._user}`) as Observable<User>;
+  getUserLoggedIn(): Observable<User> {
+    return this._user;
+  }
+  setUserLoggedIn(user: User): void {
+    this._user = user;
   }
   
 }

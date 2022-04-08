@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/system.service';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 
@@ -11,9 +12,11 @@ import { RequestService } from '../request.service';
 export class RequestEditComponent implements OnInit {
 
   request!: Request;
+  user: any;
 
   constructor(
     private reqsvc: RequestService,
+    private sys: SystemService,
     private route: ActivatedRoute,
     private router: Router
   ) { }

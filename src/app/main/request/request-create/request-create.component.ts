@@ -33,7 +33,7 @@ export class RequestCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.request.user = this.sys.getLoggedInUser()!;
+    this.request.user = this.sys._user;
   }
 
 }
