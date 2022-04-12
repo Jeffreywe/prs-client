@@ -7,10 +7,20 @@
             <th>Id</th><td><input [(ngModel)]="product.id" type="number" disabled></td>
         </tr>
         <tr>
-            <th>Vendor</th><td><input [(ngModel)]="product.vendorId" type="number"></td>
+            <th>Vendor</th>
+            <td>
+                <select [(ngModel)]="product.vendorId">
+                    <option *ngFor="let vens of vendors" value="{{ vens.id }}">{{ vens.name }}</option>
+                </select>
+            </td>
         </tr>
         <tr>
-            <th>Part Number</th><td><input [(ngModel)]="product.partNbr" type="text"></td>
+            <th>Part Number</th>
+            <td>
+                <select [(ngModel)]="product.partNbr">
+                    <option *ngFor="let pnstrs of partNbrStrs" value="{{ pnstrs }}">{{ pnstrs }}</option>
+                </select>
+            </td>
         </tr>
         <tr>
             <th>Name</th><td><input [(ngModel)]="product.name" type="text"></td>

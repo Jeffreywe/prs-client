@@ -9,10 +9,27 @@ import { Request } from './request.class';
 export class RequestService {
 
   baseUrl: string = "http://localhost:43788/api/requests";
+  reqUrl: string = "http://localhost:43788/api/requests/review";
+  
 
   constructor(
     private http: HttpClient
   ) { }
+
+  requests(userId: number): Observable<Request[]> {
+    return this.http.get(`${this.reqUrl}/${userId}`) as Observable<Request[]>;
+  }
+  review(req: Request): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${req.id}/request`, req) as Observable<any>;
+  }
+  approve(req: Request): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${req.id}/setApproved`, req) as Observable<any>;
+  }
+  reject(req: Request): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${req.id}/setRejected`, req) as Observable<any>;
+  }
+
+
 
   list(): Observable<Request[]> {
     return this.http.get(`${this.baseUrl}`) as Observable<Request[]>;

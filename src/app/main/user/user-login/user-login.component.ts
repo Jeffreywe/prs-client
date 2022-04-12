@@ -13,6 +13,7 @@ export class UserLoginComponent implements OnInit {
 
   username: string = "";
   password: string = "";
+  msg: string = "";
 
   constructor(
     private usersvc: UserService,
@@ -22,14 +23,21 @@ export class UserLoginComponent implements OnInit {
 
   
   submit(): void {
+    this.msg = "";
     this.sys._user = null;
     this.usersvc.login(this.username, this.password).subscribe({
       next: (res) => {
+        console.debug("Login successful!", res);
         this.sys.setUserLoggedIn(res as User);
         this.router.navigateByUrl("/request/list")
       },
       error: (err) => {
         console.error("Login unsuccessful!");
+        if(err.status == 404) {
+          this.msg = "User with that combitination not found";
+        } else {
+          console.error(err);
+        }
       }
     });
   }

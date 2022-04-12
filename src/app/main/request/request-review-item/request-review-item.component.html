@@ -1,0 +1,64 @@
+<app-menu></app-menu>
+<span class="pTitle">Request lines</span>
+<hr>
+<div *ngIf="request">
+<table class="table table-sm">
+    <thead>
+            <tr>
+            <th>Id</th>
+            <th>User</th>
+            <th>Description</th>
+            <th hidden>Justification</th>
+            <th *ngIf="request.rejectionReason">Rejection Reason</th>
+            <th hidden>DeliveryMode</th>
+            <th>Status</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ request.id }}</td>
+            <td *ngIf="request.user">{{ request.user.username }}</td>
+            <td>{{ request.description }}</td>
+            <td hidden>{{ request.justification }}</td>
+            <td *ngIf="request.rejectionReason" class="text-danger">{{ request.rejectionReason }}</td>
+            <td hidden>{{ request.deliveryMode }}</td>
+            <td>{{ request.status }}</td>
+            <td>{{ request.total | currency }}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div>
+    <span class="pTitle">Lines</span>
+</div>
+<hr>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>LineTotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reqL of request.requestLines">
+                <td>{{reqL.id}}</td>
+                <td>{{reqL.product.name}}</td>
+                <td>{{reqL.quantity}}</td>
+                <td>{{reqL.product.price | currency}}</td>
+                <td>{{reqL.product.price * reqL.quantity | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<button (click)="setApprove()">Approve</button> |
+<button (click)="setReject()">Reject</button>
+<span *ngIf="showVerBtn">
+    | <input [(ngModel)]="request.rejectionReason" type="text" placeholder="Rejection Reason">
+    | <button (click)="verifyReject()" class="text-danger">Confirm Reject?</button>
+</span>
+</div>

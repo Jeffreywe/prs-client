@@ -10,7 +10,12 @@ import { ProductListComponent } from './main/product/product-list/product-list.c
 import { RequestCreateComponent } from './main/request/request-create/request-create.component';
 import { RequestDetailComponent } from './main/request/request-detail/request-detail.component';
 import { RequestEditComponent } from './main/request/request-edit/request-edit.component';
+import { RequestLinesComponent } from './main/request/request-lines/request-lines.component';
 import { RequestListComponent } from './main/request/request-list/request-list.component';
+import { RequestReviewItemComponent } from './main/request/request-review-item/request-review-item.component';
+import { RequestReviewListComponent } from './main/request/request-review-list/request-review-list.component';
+import { RequestlineCreateComponent } from './main/requestline/requestline-create/requestline-create.component';
+import { RequestlineEditComponent } from './main/requestline/requestline-edit/requestline-edit.component';
 import { UserCreateComponent } from './main/user/user-create/user-create.component';
 import { UserDetailComponent } from './main/user/user-detail/user-detail.component';
 import { UserEditComponent } from './main/user/user-edit/user-edit.component';
@@ -46,6 +51,12 @@ const routes: Routes = [
   { path: "request/create", component: RequestCreateComponent },
   { path: "request/detail/:id", component: RequestDetailComponent },
   { path: "request/edit/:id", component: RequestEditComponent },
+  { path: "request/lines/:id", component: RequestLinesComponent },
+  { path: "request/review/list", component: RequestReviewListComponent },
+  { path: "request/review/item/:id", component: RequestReviewItemComponent },
+  
+  { path: "requestline/create/:requestId", component: RequestlineCreateComponent },
+  { path: "requestline/edit/:id", component: RequestlineEditComponent },
 
   { path: "user/login", component: UserLoginComponent },
 

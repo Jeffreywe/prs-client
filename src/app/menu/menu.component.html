@@ -3,5 +3,8 @@
         <li *ngFor="let m of menus">
             <a routerLink="{{ m.route }}">{{ m.display }}</a>
         </li>
+        <li>
+            <span>{{ username }}</span>
+        </li>
     </ul>
 </nav>

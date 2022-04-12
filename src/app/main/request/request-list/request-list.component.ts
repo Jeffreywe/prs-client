@@ -22,7 +22,7 @@ export class RequestListComponent implements OnInit {
   ngOnInit(): void {
     this.reqsvc.list().subscribe({
       next: (res) => {
-        this.sys._user = res;
+        this.userM = res;
         this.requests = res;
         console.debug("Requests:", res);
       },

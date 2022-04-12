@@ -11,8 +11,11 @@ hr {
     margin-bottom: 0;
 }
 
+input {
+    border-radius: 6px;
+}
 td {
-    border-radius: 8px;
+    border-radius: 0px;
 }
 .search {
     border: none;

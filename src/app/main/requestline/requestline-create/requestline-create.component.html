@@ -1,0 +1,22 @@
+<app-menu></app-menu>
+<span class="pTitle">Create new rLine</span>
+<hr>
+<table *ngIf="rLine" class="table table-sm">
+    <tbody>
+        <tr>
+            <th>Id</th><td><input [(ngModel)]="rLine.id" type="number" disabled></td>
+        </tr>
+        <tr>
+            <th>Product</th>
+            <select [(ngModel)]="rLine.productId">
+                <option *ngFor="let prod of products" value="{{ prod.id }}">{{ prod.name }}</option>
+            </select>
+        </tr>
+        <tr>
+            <th>Quantity</th><td><input [(ngModel)]="rLine.quantity" type="number"></td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <button (click)="save()" class="btn btn-primary">Create</button>
+</div>

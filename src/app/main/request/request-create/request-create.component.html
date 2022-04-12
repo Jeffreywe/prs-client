@@ -7,7 +7,7 @@
             <th>Id</th><td><input [(ngModel)]="request.id" type="number" disabled></td>
         </tr>
         <tr>
-            <th>User</th><td><input [(ngModel)]="request.userId" type="text"></td>
+            <th>User</th><td><input *ngIf="request.user" [(ngModel)]="userM.username" type="text" readonly></td>
         </tr>
         <tr>
             <th>Description</th><td><input [(ngModel)]="request.description" type="text"></td>
@@ -22,10 +22,10 @@
             <th>Delivery Mode</th><td><input [(ngModel)]="request.deliveryMode" type="text"></td>
         </tr>
         <tr>
-            <th>Status</th><td><input [(ngModel)]="request.status" type="text"></td>
+            <th>Status</th><td><input [(ngModel)]="request.status" type="text" disabled></td>
         </tr>
         <tr>
-            <th>Total</th><td><input [(ngModel)]="request.total" type="number" readonly></td>
+            <th>Total</th><td><input [(ngModel)]="request.total" type="number" disabled></td>
         </tr>
     </tbody>
 </table>

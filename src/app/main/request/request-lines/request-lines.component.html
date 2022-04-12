@@ -1,0 +1,68 @@
+<app-menu></app-menu>
+<span class="pTitle">Request lines</span>
+<hr>
+<div *ngIf="request">
+<table class="table table-sm">
+    <thead>
+            <tr>
+            <th>Id</th>
+            <th>User</th>
+            <th>Description</th>
+            <th hidden>Justification</th>
+            <th hidden>Rejection Reason</th>
+            <th hidden>DeliveryMode</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ request.id }}</td>
+            <td *ngIf="request.user.id">{{ request.user.username }}</td>
+            <td>{{ request.description }}</td>
+            <td hidden>{{ request.justification }}</td>
+            <td hidden>{{ request.rejectionReason }}</td>
+            <td hidden>{{ request.deliveryMode }}</td>
+            <td>{{ request.status }}</td>
+            <td>{{ request.total | currency }}</td>
+            <td>
+                <button (click)="click()" class="detEdi">Review</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div>
+    <span class="pTitle">Lines</span> |
+    <a class="createBtn" routerLink="/requestline/create/{{request.id}}">Create Line</a>
+</div>
+<hr>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>LineTotal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reqL of request.requestLines">
+                <td>{{reqL.id}}</td>
+                <td>{{reqL.product.name}}</td>
+                <td>{{reqL.quantity}}</td>
+                <td>{{reqL.product.price | currency}}</td>
+                <td>{{reqL.product.price * reqL.quantity | currency}}</td>
+                <td>
+                    <a class="createBtn" routerLink="/requestline/edit/{{reqL.id}}">Edit</a>
+                    | <button class="detEdi" (click)="remove(reqL)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

@@ -9,6 +9,13 @@ import { Menu } from './menu.class';
 })
 export class MenuComponent implements OnInit {
 
+  get username() {
+    if(!this.sys.loggedInUser) {
+      return "[]";
+    }
+    return `[${this.sys.getUserLoggedIn()?.username}]`;
+  }
+
   menus: Menu[] = [
     new Menu("Home", "/home"),
     new Menu("About", "/about"),
@@ -17,11 +24,14 @@ export class MenuComponent implements OnInit {
     new Menu("Vendors", "/vendor/list"),
     new Menu("Products", "/product/list"),
     new Menu("Requests", "/request/list"),
+    new Menu("Reviews", "/request/review/list"),
     
     new Menu("Login", "/user/login")
   ];
 
-  constructor() { }
+  constructor(
+    private sys: SystemService
+  ) { }
 
   ngOnInit(): void {
   }

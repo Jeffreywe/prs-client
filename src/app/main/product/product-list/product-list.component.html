@@ -5,7 +5,7 @@
     <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
 </div>
 <hr>
-<table class="table table-sm">
+<table *ngIf="products" class="table table-sm">
     <thead>
         <tr>
             <th>Id</th>
@@ -21,7 +21,7 @@
     <tbody>
         <tr *ngFor="let p of products">
             <td>{{ p.id }}</td>
-            <td>{{ p.vendorId }}</td>
+            <td *ngIf="p.vendor">{{ p.vendor.name }}</td>
             <td>{{ p.partNbr }}</td>
             <td>{{ p.name }}</td>
             <td>{{ p.price | currency }}</td>
